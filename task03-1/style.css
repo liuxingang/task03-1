@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #525252;
+}
+
+/*容器定位*/
+.container {
+    width: 220px;
+    height: 220px;
+    position: relative;
+    margin: 200px auto 10px;
+}
+
+/*底部光晕样式*/
+.circle {
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    background: #f8ffc2;
+    border-radius: 50%;
+    -webkit-transform: rotateX(70deg);
+    box-shadow: 0 0 200px gold,
+    inset 0 0 20px #FFD700;
+    -webkit-animation: halo 2s infinite ease-in-out;
+}
+
+/*魔方动画*/
+.cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 0px;
+    -webkit-backface-visibility: hidden;
+}
+
+.animation-rotation {
+    -webkit-animation: rotation 5s infinite ease-in-out;
+}
+
+/*魔方6个面*/
+.cube figure {
+    width: 216px;
+    height: 216px;
+    display: block;
+    position: absolute;
+    border: 2px solid #000000;
+}
+
+div {
+    height: 72px;
+    width: 72px;
+    float: left;
+}
+
+/*魔方内9个块儿颜色的设置*/
+div:nth-child(1) {
+    background: #fab024;
+}
+
+div:nth-child(2) {
+    background: #2a4aff;
+}
+
+div:nth-child(3) {
+    background: #b92af3;
+}
+
+div:nth-child(4) {
+    background: #1bffaa;
+}
+
+div:nth-child(5) {
+    background: #ffffff;
+    color: #1ebc9c;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 70px;
+    box-shadow: inset 0 0 30px #1ebc9c;
+}
+
+.animation-shaking {
+    -webkit-animation: shaking 0.5s infinite ease-in-out;
+}
+
+div:nth-child(6) {
+    background: #11e83d;
+}
+
+div:nth-child(7) {
+    background: #fa2c52;
+}
+
+div:nth-child(8) {
+    background: #7061c8;
+}
+
+div:nth-child(9) {
+    background: #dcfd22;
+}
+
+/*分别把6个面推到正确的位置*/
+.front {
+    -webkit-transform: rotateY(0deg) translateZ(110px);
+}
+
+.back {
+    -webkit-transform: rotateX(180deg) translateZ(110px);
+}
+
+.right {
+    -webkit-transform: rotateY(90deg) translateZ(110px);
+}
+
+.left {
+    -webkit-transform: rotateY(-90deg) translateZ(110px);
+}
+
+.top {
+    -webkit-transform: rotateX(90deg) translateZ(110px);
+}
+
+.bottom {
+    -webkit-transform: rotateX(-90deg) translateZ(110px);
+}
+
+/*魔方*/
+@-webkit-keyframes rotation {
+    0% {
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    25% {
+        -webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+    }
+    50% {
+        -webkit-transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
+    }
+    75% {
+        -webkit-transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+
+/*中间文字动画*/
+@-webkit-keyframes shaking {
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
+    25% {
+        -webkit-transform: rotateY(30deg);
+    }
+    50% {
+        -webkit-transform: rotateY(0deg);
+    }
+    70% {
+        -webkit-transform: rotateY(-30deg);
+    }
+    100% {
+        -webkit-transform: rotateY(0deg);
+    }
+}
+
+/*光晕动画*/
+@-webkit-keyframes halo {
+    0% {
+        box-shadow: 0 0 200px gold;
+    }
+    25% {
+        box-shadow: 0 0 0 gold;
+    }
+    50% {
+        box-shadow: 0 0 200px gold;
+    }
+    70% {
+        box-shadow: 0 0 0 gold;
+    }
+    100% {
+        box-shadow: 0 0 200px gold;
+    }
+}
